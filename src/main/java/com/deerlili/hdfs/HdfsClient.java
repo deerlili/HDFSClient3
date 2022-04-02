@@ -88,6 +88,7 @@ public class HdfsClient {
         while (listFiles.hasNext()) {
             LocatedFileStatus fileStatus = listFiles.next();
 
+            logger.info("file info: {}", fileStatus.getPath().getName());
             logger.info("file info: {}", fileStatus.getPermission());
             logger.info("file info: {}", fileStatus.getOwner());
             logger.info("file info: {}", fileStatus.getGroup());
@@ -95,7 +96,7 @@ public class HdfsClient {
             logger.info("file info: {}", fileStatus.getModificationTime());
             logger.info("file info: {}", fileStatus.getReplication());
             logger.info("file info: {}", fileStatus.getBlockSize());
-            logger.info("file info: {}", fileStatus.getPath().getName());
+
 
             BlockLocation[] blockLocations = fileStatus.getBlockLocations();
             logger.info("file info: {}", Arrays.toString(blockLocations));
